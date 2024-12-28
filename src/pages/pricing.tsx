@@ -154,7 +154,7 @@ export default function Pricing() {
           <div className="relative">
             <div className="absolute inset-0 h-3/4 bg-primary-900" />
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-md mx-auto grid gap-8 lg:max-w-5xl lg:grid-cols-3 lg:gap-5">
+              <div className="max-w-md mx-auto grid gap-8 lg:max-w-5xl lg:grid-cols-3">
                 {tiers.map((tier) => (
                   <div
                     key={tier.id}
@@ -225,11 +225,11 @@ export default function Pricing() {
       </div>
 
       {/* FAQ Section */}
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900">Frequently asked questions</h2>
           <p className="mt-4 text-lg text-gray-500">
-            Can't find the answer you're looking for? Contact our support team.
+            Can&apos;t find the answer you&apos;re looking for? Contact our support team.
           </p>
         </div>
         <div className="mt-12 grid gap-8 lg:grid-cols-2">

@@ -42,7 +42,7 @@ export default function Contact() {
               Get in Touch
             </h1>
             <p className="mt-4 text-xl text-primary-100">
-              We're here to help with any questions about FloNotes
+              We&apos;re here to help with any questions about FloNotes
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function Contact() {
             <div className="max-w-lg mx-auto">
               <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">Send us a message</h2>
               <p className="mt-4 text-gray-500">
-                Fill out the form below and we'll get back to you within 24 hours.
+                Fill out the form below and we&apos;ll get back to you within 24 hours.
               </p>
               <form className="mt-8 grid grid-cols-1 gap-6">
                 <div>

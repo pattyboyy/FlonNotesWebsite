@@ -123,7 +123,7 @@ export default function Demo() {
                     <p className="text-gray-700">{generatedNote}</p>
                   ) : (
                     <p className="text-gray-500 italic">
-                      Fill in the session details and click "Generate Note" to see AI-powered note generation in action.
+                      Fill in the session details and click &quot;Generate Note&quot; to see AI-powered note generation in action.
                     </p>
                   )}
                 </div>
