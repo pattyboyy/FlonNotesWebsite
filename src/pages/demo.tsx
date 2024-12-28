@@ -427,7 +427,7 @@ Please synthesize the above information into a single, cohesive paragraph approx
   return (
     <div className="min-h-screen font-sans bg-gradient-to-b from-white to-indigo-50">
       {/* Hero Section (no illustration, no dark mode) */}
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16 px-4 sm:px-6 lg:px-8 mb-10">
+      <div className="bg-primary-800 text-white py-16 px-4 sm:px-6 lg:px-8 mb-10">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
             Try FloNotes In Action
