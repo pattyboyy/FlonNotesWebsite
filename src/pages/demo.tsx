@@ -5,6 +5,7 @@ import {
   Save,
   HelpCircle,
 } from 'lucide-react';
+import Link from 'next/link'; //  <-- ADD THIS IMPORT
 
 /**
  * Interfaces defining the state structure for each section of the form.
@@ -1079,6 +1080,21 @@ Please synthesize the above information into a single, cohesive paragraph approx
                 generator that fits your business perfectly. By partnering with us, you’ll get
                 an efficient, user-friendly tool to streamline your notes—so you can focus on
                 delivering the best care possible.
+              </p>
+            </div>
+
+            {/* Disclaimer Box */}
+            <div className="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md shadow-sm">
+              <h4 className="text-lg font-semibold text-yellow-900 mb-2">Disclaimer</h4>
+              <p className="text-yellow-800 text-sm leading-relaxed">
+                The note generator you see here is just one of many features FloNotes provides.
+                With professional access to FloNotes, you unlock advanced functionality like
+                integrated EHR workflows, multi-language note generation, HIPAA-compliant
+                collaborative tools, and much more. To view the complete feature set,
+                please visit our{' '}
+                <Link href="/" className="underline">
+                  homepage
+                </Link>.
               </p>
             </div>
           </div>
