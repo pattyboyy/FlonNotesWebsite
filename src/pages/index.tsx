@@ -1,7 +1,15 @@
 // src/pages/index.tsx
 import React from 'react';
 import Link from 'next/link';
-import { Brain, Shield, Clock, ChartBar } from 'lucide-react';
+import { 
+  Brain, 
+  Shield, 
+  Clock, 
+  ChartBar, 
+  Check,
+  BarChart,
+  Settings
+} from 'lucide-react';
 
 export default function Home() {
   const features = [
@@ -96,6 +104,245 @@ export default function Home() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Why FloNotes Section */}
+      <div className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              Why Choose FloNotes?
+            </h2>
+            <p className="mt-4 text-xl text-gray-500">
+              More than just note-taking software - a complete solution for modern mental health practices
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+            {/* AI-Powered Intelligence */}
+            <div className="relative bg-white rounded-xl shadow-sm p-8">
+              <div className="flex items-center mb-6">
+                <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                  <Brain className="h-6 w-6 text-primary-600" />
+                </div>
+                <h3 className="ml-4 text-xl font-semibold text-gray-900">
+                  AI-Powered Intelligence
+                </h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Our advanced AI assistant revolutionizes clinical documentation by generating context-aware notes that incorporate patient history, previous treatments, and patterns of progress, ensuring comprehensive and meaningful documentation.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Context-aware note generation using historical patient data</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Intelligent pattern recognition across treatment history</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Automated risk factor identification and alerts</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Natural language queries for instant information access</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Advanced Analytics */}
+            <div className="relative bg-white rounded-xl shadow-sm p-8">
+              <div className="flex items-center mb-6">
+                <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                  <BarChart className="h-6 w-6 text-primary-600" />
+                </div>
+                <h3 className="ml-4 text-xl font-semibold text-gray-900">
+                  Advanced Analytics & Progress Tracking
+                </h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Transform patient data into actionable insights with our comprehensive analytics suite. 
+                Track progress, identify patterns, and make data-driven decisions to improve outcomes.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Daily progress tracking and visualization</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Customizable outcome measures and metrics</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Trend analysis and predictive insights</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Streamlined Workflow */}
+            <div className="relative bg-white rounded-xl shadow-sm p-8">
+              <div className="flex items-center mb-6">
+                <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                  <Settings className="h-6 w-6 text-primary-600" />
+                </div>
+                <h3 className="ml-4 text-xl font-semibold text-gray-900">
+                  Effortless Implementation
+                </h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Designed for immediate adoption with minimal training required. Our intuitive interface 
+                and customizable workflows ensure your team can start using FloNotes effectively from day one.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Intuitive interface requiring minimal training</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Customizable templates and workflows</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Seamless integration with existing systems</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Security & Compliance */}
+            <div className="relative bg-white rounded-xl shadow-sm p-8">
+              <div className="flex items-center mb-6">
+                <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-primary-600" />
+                </div>
+                <h3 className="ml-4 text-xl font-semibold text-gray-900">
+                  Enterprise-Grade Security
+                </h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Built with security and compliance at its core. FloNotes exceeds HIPAA requirements 
+                and implements the latest security measures to protect sensitive patient data.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">HIPAA compliant infrastructure</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">End-to-end encryption for all data</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Regular security audits and updates</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Additional Benefits */}
+          <div className="mt-16 bg-white rounded-xl shadow-sm p-8">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
+              Additional Benefits
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Practice Customization</h4>
+                  <p className="mt-1 text-gray-600">Tailored to your specific practice needs and workflows</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Automated Documentation</h4>
+                  <p className="mt-1 text-gray-600">Context-aware note generation using historical patient data</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Treatment Continuity</h4>
+                  <p className="mt-1 text-gray-600">AI-powered insights from previous sessions and treatment history</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Risk Management</h4>
+                  <p className="mt-1 text-gray-600">Proactive identification of potential concerns and treatment gaps</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Regulatory Compliance</h4>
+                  <p className="mt-1 text-gray-600">Ensures documentation meets all regulatory requirements</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Quality Assurance</h4>
+                  <p className="mt-1 text-gray-600">Automated checks for completeness and clinical best practices</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Smart Scheduling</h4>
+                  <p className="mt-1 text-gray-600">AI-optimized appointment scheduling and reminders</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Research Insights</h4>
+                  <p className="mt-1 text-gray-600">Aggregate anonymized data for treatment efficacy research</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <div>
+                  <h4 className="font-medium text-gray-900">Multi-Provider Support</h4>
+                  <p className="mt-1 text-gray-600">Seamless collaboration across your entire care team</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-primary-700">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <span className="block">Ready to transform your practice?</span>
+            <span className="block text-primary-200">Start your journey with FloNotes today.</span>
+          </h2>
+          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+            <div className="inline-flex rounded-md shadow">
+              <Link
+                href="/demo"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50"
+              >
+                Try Demo
+              </Link>
+            </div>
+            <div className="ml-3 inline-flex rounded-md shadow">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700"
+              >
+                Contact Sales
+              </Link>
             </div>
           </div>
         </div>
