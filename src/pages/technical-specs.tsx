@@ -1,6 +1,6 @@
 // src/pages/technical-specs.tsx
 import React, { useState } from 'react';
-import { Shield, Laptop, Network, Settings, Download, Server, Search, Activity } from 'lucide-react';
+import { Shield, Laptop, Network, Download, Server, Search, Activity } from 'lucide-react';
 
 interface Specification {
   title: string;

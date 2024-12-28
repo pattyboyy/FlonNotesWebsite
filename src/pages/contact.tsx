@@ -60,7 +60,9 @@ export default function Contact() {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -77,7 +79,7 @@ export default function Contact() {
             Get in Touch
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-xl text-primary-100">
-            Have questions about FloNotes? We're here to help.
+            Have questions about FloNotes? We&apos;re here to help.
           </p>
         </div>
       </div>
@@ -150,7 +152,7 @@ export default function Contact() {
                     </div>
                     <h3 className="mt-4 text-lg font-medium text-gray-900">Thanks for reaching out!</h3>
                     <p className="mt-2 text-sm text-gray-500">
-                      We'll get back to you as soon as possible.
+                      We&apos;ll get back to you as soon as possible.
                     </p>
                     <button
                       onClick={() => setFormStatus(prev => ({ ...prev, isSubmitted: false }))}
@@ -212,7 +214,7 @@ export default function Contact() {
                           className="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-colors duration-200"
                         />
                         <div className="mt-1 text-xs text-gray-500">
-                          We'll never share your email with anyone else.
+                          We&apos;ll never share your email with anyone else.
                         </div>
                       </div>
                     </div>
@@ -315,7 +317,7 @@ export default function Contact() {
               },
               {
                 question: "How can I request a demo?",
-                answer: "You can request a demo by filling out the contact form above or emailing us directly at demo@flonotes.com. We'll schedule a personalized demonstration of our platform."
+                answer: "You can request a demo by filling out the contact form above or emailing us directly at demo@flonotes.com. We’ll schedule a personalized demonstration of our platform."
               }
             ].map((faq, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors duration-200">
