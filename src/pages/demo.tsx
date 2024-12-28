@@ -34,6 +34,14 @@ interface ActivityState {
   engagement: number;
 }
 
+/**
+ * To remove the `any` cast on `engagementDescriptor`, we define
+ * a new Activity interface that extends ActivityState.
+ */
+interface TransformedActivityState extends ActivityState {
+  engagementDescriptor: string;
+}
+
 interface SocialState {
   peer: string;
   staff: string;
@@ -90,6 +98,7 @@ const Demo = () => {
     otherDescription: '',
   });
 
+  // Note: Our original `activities` remains typed as ActivityState.
   const [activities, setActivities] = useState<Record<string, ActivityState>>({
     'Group Therapy': { participated: false, engagement: 5 },
     'Individual Therapy': { participated: false, engagement: 5 },
@@ -151,7 +160,38 @@ const Demo = () => {
     return 'unknown';
   };
 
+  /**
+   * Collect all form data into a single object.
+   */
+  function collectFormData() {
+    return {
+      mood,
+      behaviors,
+      activities,
+      social,
+      health,
+      incidents,
+      additionalNotes,
+    };
+  }
+
+  /**
+   * Transform the raw data into a type-safe structure with
+   * additional descriptors (e.g., `engagementDescriptor`).
+   */
   const transformData = (data: ReturnType<typeof collectFormData>) => {
+    // Build typed activities object
+    const transformedActivities: Record<string, TransformedActivityState> =
+      Object.fromEntries(
+        Object.entries(data.activities).map(([key, val]) => {
+          const engagementDescriptor = mapScoreToDescriptor(val.engagement);
+          return [
+            key,
+            { ...val, engagementDescriptor } as TransformedActivityState,
+          ];
+        })
+      );
+
     const transformed = {
       mood: {
         ...data.mood,
@@ -161,12 +201,7 @@ const Demo = () => {
           : null,
       },
       behaviors: { ...data.behaviors },
-      activities: Object.fromEntries(
-        Object.entries(data.activities).map(([key, val]) => [
-          key,
-          { ...val, engagementDescriptor: mapScoreToDescriptor(val.engagement) },
-        ])
-      ),
+      activities: transformedActivities, // <-- Now fully typed
       social: {
         ...data.social,
         overallInteractionDescriptor: mapScoreToDescriptor(
@@ -186,25 +221,12 @@ const Demo = () => {
     return transformed;
   };
 
-  // -------------------------------
-  // 4) Collect Form Data
-  // -------------------------------
-  function collectFormData() {
-    return {
-      mood,
-      behaviors,
-      activities,
-      social,
-      health,
-      incidents,
-      additionalNotes,
-    };
-  }
-
   /**
-   * Creates a prompt for the AI model.
+   * Creates a prompt for the AI model based on transformed data.
    */
-  function createAiPrompt(data: ReturnType<typeof transformData>) {
+  function createAiPrompt(
+    data: ReturnType<typeof transformData> // typed transformation
+  ) {
     const { mood, behaviors, activities, social, health, incidents, additionalNotes } = data;
 
     let prompt = `The following information was collected from a mental health session:\n\n`;
@@ -234,7 +256,7 @@ const Demo = () => {
     // Activities
     const participatedActivities = Object.entries(activities)
       .filter(([, val]) => val.participated)
-      .map(([name, val]) => `${name} (${(val as any).engagementDescriptor})`);
+      .map(([name, val]) => `${name} (${val.engagementDescriptor})`);
     if (participatedActivities.length > 0) {
       prompt += `Activities & Engagement: ${participatedActivities.join('; ')}.\n\n`;
     }
@@ -1052,10 +1074,11 @@ Please synthesize the above information into a single, cohesive paragraph approx
               </h4>
               <p className="text-indigo-800 text-sm leading-relaxed">
                 FloNotes is designed to adapt to your practice’s unique workflows and clinical
-                documentation requirements. Whether you need custom fields, specialized sections, or 
-                AI-driven insights tailored to your specific treatments, we can build a note generator 
-                that fits your business perfectly. By partnering with us, you’ll get an efficient, 
-                user-friendly tool to streamline your notes—so you can focus on delivering the best care possible.
+                documentation requirements. Whether you need custom fields, specialized sections,
+                or AI-driven insights tailored to your specific treatments, we can build a note
+                generator that fits your business perfectly. By partnering with us, you’ll get
+                an efficient, user-friendly tool to streamline your notes—so you can focus on
+                delivering the best care possible.
               </p>
             </div>
           </div>
