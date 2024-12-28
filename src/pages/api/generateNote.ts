@@ -1,4 +1,4 @@
-// pages/api/generateNote.ts
+// src/pages/api/generateNote.ts
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { OpenAI } from 'openai';
@@ -36,7 +36,7 @@ Employ qualitative descriptors to convey intensity and engagement levels.
 Conclude with one key clinical insight or recommendation.
 Keep the note between 150-200 words.
 Avoid bullet points and ensure the narrative flows naturally.
-        `,
+          `,
         },
         {
           role: 'user',
@@ -57,7 +57,7 @@ Avoid bullet points and ensure the narrative flows naturally.
     }
 
     res.status(200).json({ generatedNote });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error generating note:', error);
     res.status(500).json({ error: 'Failed to generate note' });
   }

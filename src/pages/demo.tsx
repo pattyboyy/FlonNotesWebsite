@@ -250,7 +250,7 @@ const Demo = () => {
 
     // Activities
     const participatedActivities = Object.entries(activities)
-      .filter(([_, val]) => val.participated)
+      .filter(([, val]) => val.participated)
       .map(([name, val]) => `${name} (${val.engagementDescriptor})`);
     if (participatedActivities.length > 0) {
       prompt += `Activities & Engagement: ${participatedActivities.join('; ')}.\n\n`;
@@ -280,7 +280,7 @@ const Demo = () => {
     if (incidents.occurred) {
       prompt += `Incident: ${incidents.description}. Coping Skills Used: `;
       const usedSkills = Object.entries(incidents.copingSkillsUsed)
-        .filter(([_, val]) => val)
+        .filter(([, val]) => val)
         .map(([key]) => key.replace(/([A-Z])/g, ' $1'));
       prompt += usedSkills.join(', ');
       if (incidents.copingSkillsUsed.other && incidents.otherCopingSkillDescription.trim() !== '') {
@@ -335,9 +335,13 @@ Please synthesize the above information into a single, cohesive paragraph approx
 
       const { generatedNote } = await response.json();
       setGeneratedNote(generatedNote);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Note generation error:', error);
-      setErrorMsg(error.message || 'Something went wrong.');
+      if (error instanceof Error) {
+        setErrorMsg(error.message);
+      } else {
+        setErrorMsg('An unknown error occurred.');
+      }
     } finally {
       setLoading(false);
     }
